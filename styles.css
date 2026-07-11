@@ -1,1 +1,351 @@
+/* ========== GENERAL STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    background-color: #0a0e27;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(100, 200, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(100, 200, 255, 0.6);
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.slide-in {
+    animation: slideIn 0.8s ease-out;
+}
+
+.slide-in-delay {
+    animation: slideIn 0.8s ease-out 0.3s both;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    animation: glow 4s ease-in-out infinite;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #64c8ff 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: #64c8ff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========== PROJECTS SECTION ========== */
+.projects {
+    padding: 100px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #0a0e27;
+}
+
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.projects h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #64c8ff, #a78bfa);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Project Cards */
+.project-card {
+    background: linear-gradient(135deg, #1a1f3a 0%, #0f1428 100%);
+    border: 1px solid rgba(100, 200, 255, 0.2);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    border-color: rgba(100, 200, 255, 0.5);
+    box-shadow: 0 0 30px rgba(100, 200, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    color: #64c8ff;
+    margin: 0;
+}
+
+.status {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    background-color: rgba(100, 200, 255, 0.15);
+    color: #64c8ff;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.project-description {
+    color: #b0b0b0;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Tech Stack Tags */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tech {
+    background-color: rgba(167, 139, 250, 0.15);
+    color: #a78bfa;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.project-link {
+    display: inline-block;
+    color: #64c8ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.project-link:hover {
+    border-bottom-color: #64c8ff;
+    transform: translateX(5px);
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.contact > p {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #64c8ff 0%, #a78bfa 100%);
+    color: #0a0e27;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(100, 200, 255, 0.3);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: #050810;
+    text-align: center;
+    padding: 30px 20px;
+    color: #666;
+    border-top: 1px solid rgba(100, 200, 255, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .projects h2 {
+        font-size: 2rem;
+    }
+
+    .project-card {
+        padding: 25px;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .projects {
+        padding: 60px 15px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
